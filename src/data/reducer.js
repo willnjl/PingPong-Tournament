@@ -25,6 +25,7 @@ const draw = (state) => {
     if (a !== b) {
       let match = {
         id: index,
+        player1Serving: true,
         player1: { ...pool.splice(a, 1)[0], id: 1 },
         player2: { ...pool.splice(b, 1)[0], id: 2 },
       };
@@ -48,9 +49,16 @@ const score = (state, { playerId, gameId, value }) => {
   let updatedGames = games.map((game, i) => {
     const { player1, player2 } = game;
     if (i === gameId) {
+      let service =
+        (player1.score + player2.score + value) % state.rules.alternateServe ===
+        0
+          ? !game.player1Serving
+          : game.player1Serving;
+
       if (playerId === 1 && player1.score + value >= 0) {
         return {
           ...game,
+          player1Serving: service,
           player1: {
             ...player1,
             score: player1.score + value,
@@ -59,6 +67,7 @@ const score = (state, { playerId, gameId, value }) => {
       } else if (player2.score + value >= 0) {
         return {
           ...game,
+          player1Serving: service,
           player2: {
             ...player2,
             score: player2.score + value,
