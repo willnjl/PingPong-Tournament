@@ -9,7 +9,7 @@ import { initial } from "./data/initial";
 import { reducer } from "./data/reducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer, initial, composeEnhancers(persistState()));
+const store = createStore(reducer, initial, composeEnhancers());
 
 ReactDOM.render(
   <React.StrictMode>

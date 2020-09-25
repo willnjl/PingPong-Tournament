@@ -37,13 +37,49 @@ const draw = (state) => {
   return {
     ...state,
     names: [],
+    setup: true,
     games,
     pool,
   };
 };
 
+const score = (state, { playerId, gameId, value }) => {
+  const { games } = state;
+
+  let updatedGames = games.map((game, i) => {
+    let { player1, player2 } = game;
+    if (i === gameId) {
+      if (playerId === 0 && player1.score + value >= 0) {
+        return {
+          ...game,
+          player1: {
+            ...player1,
+            score: player1.score + value,
+          },
+        };
+      } else if (player2.score + value >= 0) {
+        return {
+          ...game,
+          player2: {
+            ...player2,
+            score: player2.score + value,
+          },
+        };
+      }
+    }
+    return game;
+  });
+
+  return {
+    ...state,
+    games: updatedGames,
+  };
+};
+
 export const reducer = (state, action) => {
   switch (action.type) {
+    case "SCORE":
+      return score(state, action);
     case "SUBMIT":
       return draw(submit(state, action));
     default:
