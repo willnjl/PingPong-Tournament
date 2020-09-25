@@ -5,17 +5,15 @@ import "../../styles/main.scss";
 
 function App({ count, setup, games }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>{count}</h1>
-        {!setup ? (
-          <Setup />
-        ) : (
-          games.map((game, i) => {
-            return <Game gameId={i} />;
-          })
-        )}
-      </header>
+    <div className={"main"}>
+      <h1>{count}</h1>
+      {!setup ? (
+        <Setup />
+      ) : (
+        games.map((game, i) => {
+          return <Game gameId={i} />;
+        })
+      )}
     </div>
   );
 }

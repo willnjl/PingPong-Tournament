@@ -39,6 +39,7 @@ const draw = (state) => {
     ...state,
     names: [],
     setup: true,
+    roundFin: false,
     games,
     pool,
   };
@@ -85,7 +86,7 @@ const score = (state, { playerId, gameId, value }) => {
   };
 };
 
-const checkWon = (state) => {
+const winCheck = (state) => {
   const { games, rules } = state;
   let updatedGames = games.map((game) => {
     const { player1, player2 } = game;
@@ -116,10 +117,23 @@ const checkWon = (state) => {
   };
 };
 
+const checkFin = (state) => {
+  const checkComplete = (game) => {
+    return game.winner !== 0;
+  };
+
+  let roundFin = state.games.every((game) => checkComplete(game));
+
+  return {
+    ...state,
+    roundFin,
+  };
+};
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case "SCORE":
-      return checkWon(score(state, action));
+      return checkFin(winCheck(score(state, action)));
     case "SUBMIT":
       return draw(submit(state, action));
     default:

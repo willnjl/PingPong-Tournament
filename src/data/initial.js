@@ -1,6 +1,7 @@
 export const initial = {
   count: 0,
   setup: false,
+  roundFin: false,
 
   rules: {
     alternateServe: 5,

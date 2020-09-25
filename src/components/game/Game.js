@@ -1,13 +1,14 @@
 import React from "react";
+import MatchComplete from "../matchComplete/MatchComplete";
 import Player from "../player/Player";
 
 export default function Game({ game, handleScore }) {
   const { player1, player2, player1Serving, winner } = game;
 
   return (
-    <div className={"card__game"}>
+    <>
       {winner === 0 ? (
-        <>
+        <div className={"card__game"}>
           <Player
             player={player1}
             handleScore={handleScore}
@@ -21,10 +22,10 @@ export default function Game({ game, handleScore }) {
             gameId={game.id}
             serving={!player1Serving}
           />
-        </>
+        </div>
       ) : (
-        <h1>{player1.name}WON!</h1>
+        <MatchComplete player1={player1} player2={player2} winner={winner} />
       )}
-    </div>
+    </>
   );
 }
