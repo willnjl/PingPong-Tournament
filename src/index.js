@@ -1,18 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
+import { createStore, compose } from "redux";
+import persistState from "redux-localstorage";
 import { Provider } from "react-redux";
 import App from "./components/app";
 import * as serviceWorker from "./serviceWorker";
 import { initial } from "./data/initial";
+import { reducer } from "./data/reducer";
 
-const reducer = (state, action) => {
-  return {
-    ...state,
-  };
-};
-
-const store = createStore(reducer, initial);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, initial, composeEnhancers(persistState()));
 
 ReactDOM.render(
   <React.StrictMode>
