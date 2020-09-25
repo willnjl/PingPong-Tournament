@@ -13,7 +13,6 @@ const draw = (state) => {
 
   const pool = state.names.map((name, index) => {
     return {
-      id: index,
       name,
       score: 0,
     };
@@ -26,8 +25,8 @@ const draw = (state) => {
     if (a !== b) {
       let match = {
         id: index,
-        player1: pool.splice(a, 1)[0],
-        player2: { ...pool.splice(b, 1)[0] },
+        player1: { ...pool.splice(a, 1)[0], id: 1 },
+        player2: { ...pool.splice(b, 1)[0], id: 2 },
       };
       games.push(match);
       index += 1;
@@ -47,9 +46,9 @@ const score = (state, { playerId, gameId, value }) => {
   const { games } = state;
 
   let updatedGames = games.map((game, i) => {
-    let { player1, player2 } = game;
+    const { player1, player2 } = game;
     if (i === gameId) {
-      if (playerId === 0 && player1.score + value >= 0) {
+      if (playerId === 1 && player1.score + value >= 0) {
         return {
           ...game,
           player1: {
