@@ -4,10 +4,48 @@ const submit = (state, { names, rules }) => ({
   rules,
 });
 
+const draw = (state) => {
+  const randomName = (pool) => {
+    return Math.floor(Math.random() * pool.length - 1);
+  };
+
+  const games = [];
+
+  const pool = state.names.map((name, index) => {
+    return {
+      id: index,
+      name,
+      score: 0,
+    };
+  });
+
+  let index = 0;
+  while (pool.length > 0) {
+    let a = randomName(pool),
+      b = randomName(pool);
+    if (a !== b) {
+      let match = {
+        id: index,
+        player1: pool.splice(a, 1)[0],
+        player2: { ...pool.splice(b, 1)[0] },
+      };
+      games.push(match);
+      index += 1;
+    }
+  }
+
+  return {
+    ...state,
+    names: [],
+    games,
+    pool,
+  };
+};
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case "SUBMIT":
-      return submit(state, action);
+      return draw(submit(state, action));
     default:
       return { ...state };
   }
