@@ -1,0 +1,33 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.card {
+  border: 1px solid $navy;
+  box-shadow: 5px 1px 5px $navy;
+  display: flex;
+  margin-top: 1rem;
+
+  &__game {
+    @extend .card;
+    flex-direction: column;
+  }
+  &__complete {
+    @extend .card;
+
+    flex-direction: row;
+  }
+}
+
+.title {
+  font-weight: 500;
+}
+.col {
+  min-width: 30px;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}

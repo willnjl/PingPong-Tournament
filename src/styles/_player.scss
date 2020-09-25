@@ -1,0 +1,44 @@
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  padding: 1rem;
+}
+.name {
+  font-weight: 500;
+  min-width: 50px;
+}
+.points {
+  font-size: 1.4rem;
+  min-width: 25px;
+}
+.emoji {
+  font-size: 1.2rem;
+}
+
+.card__complete {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  justify-content: space-evenly;
+
+  .result-display {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .player {
+    @extend .player;
+    flex-direction: column;
+    margin: auto;
+    .emoji {
+      font-size: 1.2rem;
+    }
+    .points {
+      font-weight: 600;
+      margin: auto;
+    }
+  }
+}

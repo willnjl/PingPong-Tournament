@@ -61,8 +61,8 @@ export default class Setup extends Component {
     });
   }
   render() {
-    const scoreToWinOptions = [7, 11, 21];
-    const alternateServeOptions = [2, 3, 5];
+    const scoreToWinOptions = [21, 11, 7];
+    const alternateServeOptions = [5, 3, 2];
 
     return (
       <div>

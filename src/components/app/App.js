@@ -1,6 +1,7 @@
 import React from "react";
 import Setup from "../setup";
 import Game from "../game";
+import "../../styles/main.scss";
 
 function App({ count, setup, games }) {
   return (

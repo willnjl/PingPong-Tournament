@@ -25,6 +25,7 @@ const draw = (state) => {
     if (a !== b) {
       let match = {
         id: index,
+        winner: 0,
         player1Serving: true,
         player1: { ...pool.splice(a, 1)[0], id: 1 },
         player2: { ...pool.splice(b, 1)[0], id: 2 },
@@ -84,10 +85,41 @@ const score = (state, { playerId, gameId, value }) => {
   };
 };
 
+const checkWon = (state) => {
+  const { games, rules } = state;
+  let updatedGames = games.map((game) => {
+    const { player1, player2 } = game;
+    if (
+      player1.score >= rules.scoreToWin &&
+      player1.score - player2.score > 2
+    ) {
+      return {
+        ...game,
+        winner: 1,
+      };
+    }
+    if (
+      player2.score >= rules.scoreToWin &&
+      player2.score - player1.score > 2
+    ) {
+      return {
+        ...game,
+        winner: 2,
+      };
+    }
+    return game;
+  });
+
+  return {
+    ...state,
+    games: updatedGames,
+  };
+};
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case "SCORE":
-      return score(state, action);
+      return checkWon(score(state, action));
     case "SUBMIT":
       return draw(submit(state, action));
     default:
