@@ -101,12 +101,6 @@ export default class Setup extends Component {
 
     return (
       <div>
-        <ul>
-          {this.state.names.map((name) => {
-            return <li>{name}</li>;
-          })}
-        </ul>
-
         <form>
           <select name="scoreToWin" onChange={(e) => this.setScoreToWin(e)}>
             {scoreToWinOptions.map((value) => {
