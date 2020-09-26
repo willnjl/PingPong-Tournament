@@ -4,10 +4,16 @@ const submit = (state, { names, rules }) => ({
   rules,
 });
 
+const roundsRemaining = (n) => {
+  return n - 1;
+};
+
 const draw = (state) => {
   const randomName = (pool) => {
     return Math.floor(Math.random() * pool.length - 1);
   };
+
+  console.log(roundsRemaining(state.names.length));
 
   const newGames = [];
 

@@ -5,8 +5,9 @@ export default class Setup extends Component {
     super(props);
 
     this.state = {
-      field: "",
-      names: [],
+      names: ["", ""],
+      numOfPlayers: 2,
+      numOfPlayers: 2,
       rules: {
         scoreToWin: 21,
         alternateServe: 5,
@@ -48,21 +49,55 @@ export default class Setup extends Component {
     const { names, field } = this.state;
     if (field !== "") {
       this.setState({
-        field: "",
         names: [...names, field],
       });
     }
   }
 
-  handleChange(e) {
-    let input = e.currentTarget.value;
+  handleNumOfPlayers(e) {
+    const { names, numOfPlayers } = this.state;
+    let selectedValue = e.currentTarget.value;
+    let namesCopy = [...this.state.names];
+    if (selectedValue > numOfPlayers) {
+      for (let i = namesCopy.length; i < selectedValue; i += 1) {
+        namesCopy.push("");
+      }
+    } else {
+      namesCopy = names.filter((_, i) => i < e.currentTarget.value);
+    }
     this.setState({
-      field: input,
+      names: namesCopy,
+      numOfPlayers: e.currentTarget.value,
     });
   }
+
+  handleChange(e, index) {
+    let input = e.currentTarget.value;
+    let updatednames = [...this.state.names];
+    updatednames[index] = input;
+    this.setState({
+      names: updatednames,
+    });
+  }
+
   render() {
     const scoreToWinOptions = [21, 11, 7];
     const alternateServeOptions = [5, 3, 2];
+    const numOfPlayers = [2, 4, 8];
+    const inputs = [];
+
+    for (let i = 0; i < this.state.numOfPlayers; i += 1) {
+      inputs.push(
+        <input
+          key={i}
+          onChange={(e) => this.handleChange(e, i)}
+          value={this.state.names[i]}
+          required
+        />
+      );
+    }
+
+    const namesFilled = this.state.names.every((name) => name !== "");
 
     return (
       <div>
@@ -86,12 +121,17 @@ export default class Setup extends Component {
               return <option value={value}>{value}</option>;
             })}
           </select>
-          <input
-            onChange={(e) => this.handleChange(e)}
-            value={this.state.field}
-          />
-          <button onClick={(e) => this.addPlayer(e)}>add player</button>
-          {this.state.names.length % 2 === 0 ? (
+          <select
+            name="numOfPlayers"
+            onChange={(e) => this.handleNumOfPlayers(e)}
+          >
+            {numOfPlayers.map((value) => {
+              return <option value={value}>{value}</option>;
+            })}
+          </select>
+          {inputs.map((input) => input)}
+
+          {namesFilled ? (
             <button onClick={(e) => this.handleSubmit(e)}>submit</button>
           ) : (
             <button disabled>submit</button>
