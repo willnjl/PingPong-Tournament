@@ -8,34 +8,33 @@ export default function RoundResults({
   handleDraw,
   handleNewGame,
 }) {
+  const makeRows = (game) => {
+    return game.map((match) => {
+      const { player1, player2, winner } = match;
+      return (
+        <tr>
+          <td>{winner === 1 ? "🏅" : null}</td>
+          <td>{player1.name}</td>
+          <td>{player1.score}</td>
+          <td>{player2.score}</td>
+          <td>{player2.name}</td>
+          <td>{winner === 2 ? "🏅" : null}</td>
+        </tr>
+      );
+    });
+  };
+
+  let makeTable = (game) => {
+    console.log(game);
+    return <Table striped>{makeRows(game)}</Table>;
+  };
+
   return (
     <div>
-      <RoundTitle roundsRemaining={roundsRemaining} />
-      <Table striped>
-        {/* <thead>
-          <th></th>
-          <th>player1</th>
-          <th>score</th>
-          <th>score</th>
-          <th>player2</th>
-        </thead> */}
-        <tbody>
-          {record.map((game) => {
-            const { player1, player2, winner } = game;
-            return (
-              <tr>
-                <td>{winner === 1 ? "🏅" : null}</td>
-                <td>{player1.name}</td>
-                <td>{player1.score}</td>
-                <td>{player2.score}</td>
-                <td>{player2.name}</td>
-                <td>{winner === 2 ? "🏅" : null}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </Table>
-      <button onClick={() => window.print()}>Print</button>
+      {record.map((game) => {
+        return <>{makeTable(game)}</>;
+      })}
+      )<button onClick={() => window.print()}>Print</button>
       {roundsRemaining > 0 ? (
         <button onClick={handleDraw}>Next Round...</button>
       ) : (

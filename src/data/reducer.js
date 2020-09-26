@@ -125,10 +125,17 @@ const checkRoundFin = (state) => {
   const checkComplete = (game) => {
     return game.winner !== 0;
   };
-
   let roundFin = state.games.every((game) => checkComplete(game));
   if (roundFin) {
-    let record = [...state.record, ...state.games.map((game) => game)];
+    let record = [...state.record];
+    let round = state.games.map((game) => {
+      return {
+        ...game,
+        numberRemainingAtTime: state.roundsRemaining,
+      };
+    });
+    record.push(round);
+    console.log(record);
     return {
       ...state,
       roundFin,
