@@ -123,11 +123,17 @@ const checkFin = (state) => {
   };
 
   let roundFin = state.games.every((game) => checkComplete(game));
+  if (roundFin) {
+    let record = state.games.map((game) => game);
+    return {
+      ...state,
+      games: [],
+      roundFin,
+      record,
+    };
+  }
 
-  return {
-    ...state,
-    roundFin,
-  };
+  return state;
 };
 
 export const reducer = (state, action) => {
