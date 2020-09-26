@@ -18,20 +18,22 @@ const draw = (state) => {
     };
   });
 
-  let index = 0;
-  while (pool.length > 0) {
-    let a = randomName(pool),
-      b = randomName(pool);
-    if (a !== b) {
-      let match = {
-        id: index,
-        winner: 0,
-        player1Serving: true,
-        player1: { ...pool.splice(a, 1)[0], id: 1 },
-        player2: { ...pool.splice(b, 1)[0], id: 2 },
-      };
-      newGames.push(match);
-      index += 1;
+  if (pool.length > 1) {
+    let index = 0;
+    while (pool.length > 0) {
+      let a = randomName(pool),
+        b = randomName(pool);
+      if (a !== b) {
+        let match = {
+          id: index,
+          winner: 0,
+          player1Serving: true,
+          player1: { ...pool.splice(a, 1)[0], id: 1 },
+          player2: { ...pool.splice(b, 1)[0], id: 2 },
+        };
+        newGames.push(match);
+        index += 1;
+      }
     }
   }
 
@@ -124,7 +126,7 @@ const checkRoundFin = (state) => {
 
   let roundFin = state.games.every((game) => checkComplete(game));
   if (roundFin) {
-    let record = state.games.map((game) => game);
+    let record = [...state.record, ...state.games.map((game) => game)];
     return {
       ...state,
       roundFin,
