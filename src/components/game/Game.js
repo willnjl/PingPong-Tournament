@@ -8,7 +8,7 @@ export default function Game({ game, handleScore }) {
   return (
     <>
       {winner === 0 ? (
-        <div className={"card__game"}>
+        <div className={"match-card"}>
           <Player
             player={player1}
             handleScore={handleScore}

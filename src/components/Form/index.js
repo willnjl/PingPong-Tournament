@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Setup from "./Setup";
+import Form from "./Form";
 
 const mapStateToProps = ({ count }) => ({
   count,
@@ -12,4 +12,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Setup);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

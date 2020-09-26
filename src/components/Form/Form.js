@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-export default class Setup extends Component {
+export default class Form extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       names: ["", ""],
-      numOfPlayers: 2,
+      toggleHover: false,
       numOfPlayers: 2,
       rules: {
         scoreToWin: 21,
@@ -19,6 +19,7 @@ export default class Setup extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setScoreToWin = this.setScoreToWin.bind(this);
     this.setAlternateServe = this.setAlternateServe.bind(this);
+    this.toggleHover = this.toggleHover.bind(this);
   }
 
   setAlternateServe(e) {
@@ -80,6 +81,12 @@ export default class Setup extends Component {
     });
   }
 
+  toggleHover() {
+    this.setState({
+      toggleHover: !this.state.toggleHover,
+    });
+  }
+
   render() {
     const scoreToWinOptions = [21, 11, 7];
     const alternateServeOptions = [5, 3, 2];
@@ -92,6 +99,7 @@ export default class Setup extends Component {
           key={i}
           onChange={(e) => this.handleChange(e, i)}
           value={this.state.names[i]}
+          placeholder={"Player " + (i + 1) + "'s name"}
           required
         />
       );
@@ -100,13 +108,17 @@ export default class Setup extends Component {
     const namesFilled = this.state.names.every((name) => name !== "");
 
     return (
-      <div>
-        <form>
+      <form className={"form"}>
+        <div className={"form__group"}>
+          <label htmlFor={"scoreToWin"}>Score to win:</label>
           <select name="scoreToWin" onChange={(e) => this.setScoreToWin(e)}>
             {scoreToWinOptions.map((value) => {
               return <option value={value}>{value}</option>;
             })}
           </select>
+        </div>
+        <div className={"form__group"}>
+          <label htmlFor={"alternateServe"}>Alternate serves every:</label>
           <select
             name="alternateServe"
             onChange={(e) => this.setAlternateServe(e)}
@@ -115,6 +127,9 @@ export default class Setup extends Component {
               return <option value={value}>{value}</option>;
             })}
           </select>
+        </div>
+        <div className={"form__group"}>
+          <label htmlFor={"numOfPlayers"}>Number of competitors:</label>
           <select
             name="numOfPlayers"
             onChange={(e) => this.handleNumOfPlayers(e)}
@@ -123,15 +138,25 @@ export default class Setup extends Component {
               return <option value={value}>{value}</option>;
             })}
           </select>
+        </div>
+        <div className={"form__names-container"}>
           {inputs.map((input) => input)}
+        </div>
 
-          {namesFilled ? (
-            <button onClick={(e) => this.handleSubmit(e)}>submit</button>
-          ) : (
+        {namesFilled ? (
+          <button onClick={(e) => this.handleSubmit(e)}>submit</button>
+        ) : (
+          <div
+            onPointerEnter={() => this.toggleHover()}
+            onPointerLeave={() => this.toggleHover()}
+          >
             <button disabled>submit</button>
-          )}
-        </form>
-      </div>
+          </div>
+        )}
+        <div className={"validator"}>
+          {this.state.toggleHover ? <p>please provide names!</p> : <p></p>}
+        </div>
+      </form>
     );
   }
 }

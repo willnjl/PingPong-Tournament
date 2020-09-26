@@ -2,14 +2,17 @@ import React from "react";
 
 export default function MatchComplete({ player1, player2, winner }) {
   return (
-    <div className={"card__complete"}>
+    <div className={"match-card__complete"}>
       <div>
-        <h3>{player1.name}</h3>
-        <h3>{player1.score}</h3>
+        <p>{player1.name}</p>
+        <p>{player1.score}</p>
       </div>
       <div>
-        <h3>{player2.name}</h3>
-        <h3>{player2.score}</h3>
+        <p>{winner === 1 ? player1.name : player2.name} 🏅</p>
+      </div>
+      <div>
+        <p>{player2.name}</p>
+        <p>{player2.score}</p>
       </div>
     </div>
   );

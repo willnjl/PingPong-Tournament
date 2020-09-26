@@ -1,31 +1,48 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-}
-
-.card {
-  border: 1px solid $navy;
-  box-shadow: 5px 1px 5px $navy;
+.match-card {
+  background-color: white;
+  box-shadow: 5px 1px 5px blue;
   display: flex;
   margin-top: 1rem;
+  width: 75vw;
+  min-width: 250px;
+  flex-direction: column;
 
-  &__game {
-    @extend .card;
-    flex-direction: column;
+  &__complete {
+    @extend .match-card;
+    flex-direction: row;
   }
   &__complete {
-    @extend .card;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-evenly;
 
-    flex-direction: row;
+    .result-display {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .player {
+      @extend .player;
+      flex-direction: column;
+      margin: auto;
+      .emoji {
+        font-size: 1.2rem;
+      }
+      .points {
+        font-weight: 600;
+        margin: auto;
+      }
+    }
   }
 }
 
 .title {
   font-weight: 500;
 }
-.col {
-  min-width: 30px;
+.info {
+  width: 30px;
 }
 
 .strikethrough {

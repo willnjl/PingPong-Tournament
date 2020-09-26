@@ -1,3 +1,5 @@
+import { initial } from "./initial";
+
 const submit = (state, { names, rules }) => ({
   ...state,
   names,
@@ -166,6 +168,8 @@ export const reducer = (state, action) => {
       return checkRoundFin(winCheck(score(state, action)));
     case "SUBMIT":
       return roundsRemaining(draw(submit(state, action)));
+    case "NEW_GAME":
+      return { ...initial };
     case "DRAW":
       return roundsRemaining(draw(selectWinners(state)));
     default:

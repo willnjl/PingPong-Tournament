@@ -1,9 +1,15 @@
 import { connect } from "react-redux";
 import RoundResults from "./RoundResults";
 
+const mapStateToProps = ({ roundsRemaining }, { record }) => ({
+  roundsRemaining,
+  record,
+});
+
 const mapDisptachToProps = (dispatch) => {
   return {
-    handleClick: () => dispatch({ type: "DRAW" }),
+    handleDraw: () => dispatch({ type: "DRAW" }),
+    handleNewGame: () => dispatch({ type: "NEW_GAME" }),
   };
 };
-export default connect(null, mapDisptachToProps)(RoundResults);
+export default connect(mapStateToProps, mapDisptachToProps)(RoundResults);
