@@ -1,7 +1,9 @@
 import { connect } from "react-redux";
 import Game from "./Game";
 
-const mapStateToProps = ({ games }, { gameId }) => ({ game: games[gameId] });
+const mapStateToProps = ({ games }, { gameId }) => ({
+  game: games[gameId],
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {

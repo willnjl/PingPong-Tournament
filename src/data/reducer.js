@@ -4,16 +4,10 @@ const submit = (state, { names, rules }) => ({
   rules,
 });
 
-const roundsRemaining = (n) => {
-  return n - 1;
-};
-
 const draw = (state) => {
   const randomName = (pool) => {
     return Math.floor(Math.random() * pool.length - 1);
   };
-
-  console.log(roundsRemaining(state.names.length));
 
   const newGames = [];
 
@@ -156,14 +150,22 @@ const selectWinners = (state) => {
   };
 };
 
+const roundsRemaining = (state) => {
+  console.log(state.games.length - 1);
+  return {
+    ...state,
+    roundsRemaining: state.games.length - 1,
+  };
+};
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case "SCORE":
       return checkRoundFin(winCheck(score(state, action)));
     case "SUBMIT":
-      return draw(submit(state, action));
+      return roundsRemaining(draw(submit(state, action)));
     case "DRAW":
-      return draw(selectWinners(state));
+      return roundsRemaining(draw(selectWinners(state)));
     default:
       return { ...state };
   }
