@@ -9,7 +9,7 @@ const draw = (state) => {
     return Math.floor(Math.random() * pool.length - 1);
   };
 
-  const games = [];
+  const newGames = [];
 
   const pool = state.names.map((name, index) => {
     return {
@@ -30,7 +30,7 @@ const draw = (state) => {
         player1: { ...pool.splice(a, 1)[0], id: 1 },
         player2: { ...pool.splice(b, 1)[0], id: 2 },
       };
-      games.push(match);
+      newGames.push(match);
       index += 1;
     }
   }
@@ -40,7 +40,7 @@ const draw = (state) => {
     names: [],
     setup: true,
     roundFin: false,
-    games,
+    games: newGames,
     pool,
   };
 };
@@ -117,7 +117,7 @@ const winCheck = (state) => {
   };
 };
 
-const checkFin = (state) => {
+const checkRoundFin = (state) => {
   const checkComplete = (game) => {
     return game.winner !== 0;
   };
@@ -127,7 +127,6 @@ const checkFin = (state) => {
     let record = state.games.map((game) => game);
     return {
       ...state,
-      games: [],
       roundFin,
       record,
     };
@@ -136,12 +135,29 @@ const checkFin = (state) => {
   return state;
 };
 
+const selectWinners = (state) => {
+  const { games } = state;
+  const winners = games.reduce((pool, current) => {
+    let winner =
+      current.winner === 1 ? current.player1.name : current.player2.name;
+    pool.push(winner);
+    return pool;
+  }, []);
+
+  return {
+    ...state,
+    names: winners,
+  };
+};
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case "SCORE":
-      return checkFin(winCheck(score(state, action)));
+      return checkRoundFin(winCheck(score(state, action)));
     case "SUBMIT":
       return draw(submit(state, action));
+    case "DRAW":
+      return draw(selectWinners(state));
     default:
       return { ...state };
   }

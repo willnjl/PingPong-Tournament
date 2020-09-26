@@ -5,7 +5,7 @@ const mapStateToProps = ({ record }) => ({ record });
 
 const mapDisptachToProps = (dispatch) => {
   return {
-    handleClick: dispatch({ type: "NEWROUND" }),
+    handleClick: () => dispatch({ type: "DRAW" }),
   };
 };
 export default connect(mapStateToProps, mapDisptachToProps)(RoundResults);
