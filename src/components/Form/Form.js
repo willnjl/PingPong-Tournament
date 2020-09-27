@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 
+//using a class based component here to make use of the local state.
+
 export default class Form extends Component {
   constructor(props) {
     super(props);
 
+    //local state tracks the values that the users as submitted for simplicity,
+    //rather than update the gobal state everytime
     this.state = {
       names: ["", ""],
       toggleHover: false,
@@ -59,11 +63,14 @@ export default class Form extends Component {
     const { names, numOfPlayers } = this.state;
     let selectedValue = e.currentTarget.value;
     let namesCopy = [...this.state.names];
+    //make sure they array the data type string for the correct number of names
+    //otherwise we could have an array with undefined values.
     if (selectedValue > numOfPlayers) {
       for (let i = namesCopy.length; i < selectedValue; i += 1) {
         namesCopy.push("");
       }
     } else {
+      //removes additional names if we decide to have less
       namesCopy = names.filter((_, i) => i < e.currentTarget.value);
     }
     this.setState({
@@ -80,7 +87,6 @@ export default class Form extends Component {
       names: updatednames,
     });
   }
-
   toggleHover() {
     this.setState({
       toggleHover: !this.state.toggleHover,
@@ -88,11 +94,13 @@ export default class Form extends Component {
   }
 
   render() {
+    //place options in array so they can be quickly changed
     const scoreToWinOptions = [21, 11, 7];
     const alternateServeOptions = [5, 3, 2];
     const numOfPlayers = [2, 4, 8];
     const inputs = [];
 
+    //generates an array with the correct number of inputs for the desired num of players
     for (let i = 0; i < this.state.numOfPlayers; i += 1) {
       inputs.push(
         <input
@@ -106,6 +114,7 @@ export default class Form extends Component {
       );
     }
 
+    //validation check: have they all been filled out?
     const namesFilled = this.state.names.every((name) => name !== "");
 
     return (
@@ -149,6 +158,7 @@ export default class Form extends Component {
           {inputs.map((input) => input)}
         </div>
 
+        {/*validation here to check that all the names have been submited*/}
         {namesFilled ? (
           <button className={"button"} onClick={(e) => this.handleSubmit(e)}>
             submit
