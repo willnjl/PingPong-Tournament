@@ -90,7 +90,7 @@ export default class Form extends Component {
   render() {
     const scoreToWinOptions = [21, 11, 7];
     const alternateServeOptions = [5, 3, 2];
-    const numOfPlayers = [2, 4, 8];
+    const numOfPlayers = [2, 4, 8, 16];
     const inputs = [];
 
     for (let i = 0; i < this.state.numOfPlayers; i += 1) {
