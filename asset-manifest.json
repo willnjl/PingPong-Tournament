@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/PingPong-Tornament/static/css/main.6d83e7a1.chunk.css",
-    "main.js": "/PingPong-Tornament/static/js/main.fdea4924.chunk.js",
-    "main.js.map": "/PingPong-Tornament/static/js/main.fdea4924.chunk.js.map",
-    "runtime-main.js": "/PingPong-Tornament/static/js/runtime-main.b56a9dac.js",
-    "runtime-main.js.map": "/PingPong-Tornament/static/js/runtime-main.b56a9dac.js.map",
-    "static/css/2.d9ad5f5c.chunk.css": "/PingPong-Tornament/static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.28d5be70.chunk.js": "/PingPong-Tornament/static/js/2.28d5be70.chunk.js",
-    "static/js/2.28d5be70.chunk.js.map": "/PingPong-Tornament/static/js/2.28d5be70.chunk.js.map",
-    "index.html": "/PingPong-Tornament/index.html",
-    "precache-manifest.59747e565b21baec0233af998a1e2289.js": "/PingPong-Tornament/precache-manifest.59747e565b21baec0233af998a1e2289.js",
-    "service-worker.js": "/PingPong-Tornament/service-worker.js",
-    "static/css/2.d9ad5f5c.chunk.css.map": "/PingPong-Tornament/static/css/2.d9ad5f5c.chunk.css.map",
-    "static/css/main.6d83e7a1.chunk.css.map": "/PingPong-Tornament/static/css/main.6d83e7a1.chunk.css.map",
-    "static/js/2.28d5be70.chunk.js.LICENSE.txt": "/PingPong-Tornament/static/js/2.28d5be70.chunk.js.LICENSE.txt",
-    "static/media/main.scss": "/PingPong-Tornament/static/media/racket.7c0f5a80.jpg"
+    "main.css": "/PingPong-Tournament/static/css/main.566445cd.chunk.css",
+    "main.js": "/PingPong-Tournament/static/js/main.7f7661d2.chunk.js",
+    "main.js.map": "/PingPong-Tournament/static/js/main.7f7661d2.chunk.js.map",
+    "runtime-main.js": "/PingPong-Tournament/static/js/runtime-main.3a62f6cd.js",
+    "runtime-main.js.map": "/PingPong-Tournament/static/js/runtime-main.3a62f6cd.js.map",
+    "static/css/2.d9ad5f5c.chunk.css": "/PingPong-Tournament/static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.28d5be70.chunk.js": "/PingPong-Tournament/static/js/2.28d5be70.chunk.js",
+    "static/js/2.28d5be70.chunk.js.map": "/PingPong-Tournament/static/js/2.28d5be70.chunk.js.map",
+    "index.html": "/PingPong-Tournament/index.html",
+    "precache-manifest.2038442fe75ead787799a7c6d228079d.js": "/PingPong-Tournament/precache-manifest.2038442fe75ead787799a7c6d228079d.js",
+    "service-worker.js": "/PingPong-Tournament/service-worker.js",
+    "static/css/2.d9ad5f5c.chunk.css.map": "/PingPong-Tournament/static/css/2.d9ad5f5c.chunk.css.map",
+    "static/css/main.566445cd.chunk.css.map": "/PingPong-Tournament/static/css/main.566445cd.chunk.css.map",
+    "static/js/2.28d5be70.chunk.js.LICENSE.txt": "/PingPong-Tournament/static/js/2.28d5be70.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/PingPong-Tournament/static/media/racket.7c0f5a80.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b56a9dac.js",
+    "static/js/runtime-main.3a62f6cd.js",
     "static/css/2.d9ad5f5c.chunk.css",
     "static/js/2.28d5be70.chunk.js",
-    "static/css/main.6d83e7a1.chunk.css",
-    "static/js/main.fdea4924.chunk.js"
+    "static/css/main.566445cd.chunk.css",
+    "static/js/main.7f7661d2.chunk.js"
   ]
 }
