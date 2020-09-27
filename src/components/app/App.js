@@ -1,12 +1,11 @@
 import React from "react";
 import Form from "../Form";
-
 import Reset from "../Reset";
 import "../../styles/main.scss";
 import Round from "../Round";
 import Print from "../Print";
 
-function App({ setup, games, roundFin, roundsRemaining, record, handleClick }) {
+function App({ setup, roundFin, handleClick }) {
   return (
     <div className={"page-wrapper"}>
       <header className={"header"}>

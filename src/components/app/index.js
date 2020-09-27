@@ -1,18 +1,10 @@
 import { connect } from "react-redux";
 import App from "./App";
 
-const mapStateToProps = ({
+const mapStateToProps = ({ setup, roundFin, handleClick }) => ({
   setup,
-  games,
   roundFin,
-  roundsRemaining,
-  record,
-}) => ({
-  setup,
-  games,
-  roundFin,
-  roundsRemaining,
-  record,
+  handleClick,
 });
 
 const mapDispatchToProps = (dispatch) => {
