@@ -29,7 +29,7 @@
   background-color: black;
 }
 
-.reset {
+.button--reset {
   background-color: none;
   border: 1px solid grey;
   text-decoration: underline;
@@ -37,5 +37,29 @@
   margin-top: 2rem;
   &:hover {
     border: 1px solid black;
+  }
+}
+
+.button {
+  padding: 0 1rem;
+  border: 1px solid $grey;
+  color: $grey;
+  background-color: $black;
+  transition: color 0.3s ease-in;
+
+  &:hover {
+    border-color: $green;
+    color: $green;
+  }
+
+  &-newgame {
+    @extend .button;
+    color: $blue;
+  }
+}
+
+.round_over {
+  button:nth-of-type(2) {
+    margin: 1rem;
   }
 }

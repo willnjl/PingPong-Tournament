@@ -12,5 +12,9 @@ export default function RoundTitle({ roundsRemaining }) {
     }
   };
 
-  return <div>{title(roundsRemaining)}</div>;
+  return (
+    <div className={"round-title"}>
+      <h3>{title(roundsRemaining)}</h3>
+    </div>
+  );
 }

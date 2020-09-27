@@ -154,7 +154,7 @@ export default class Form extends Component {
           </div>
         )}
         <div className={"validator"}>
-          {this.state.toggleHover ? <p>please provide names!</p> : <p></p>}
+          {this.state.toggleHover ? <p>complete names to proceed</p> : <p></p>}
         </div>
       </form>
     );

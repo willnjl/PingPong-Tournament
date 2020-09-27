@@ -30,17 +30,7 @@ export default function RoundResults({
     return (
       <>
         <RoundTitle roundsRemaining={game[0].roundsRemaining} />
-        <Table striped>
-          <thead>
-            <tr>
-              <th></th>
-              <th>name</th>
-              <th>score</th>
-              <th>score</th>
-              <th>name</th>
-              <th></th>
-            </tr>
-          </thead>
+        <Table striped bordered hover>
           <tbody>{makeRows(game)}</tbody>
         </Table>
       </>
@@ -48,16 +38,22 @@ export default function RoundResults({
   };
 
   return (
-    <div>
+    <div className={"round_over"}>
       {record.map((game) => {
         return <>{makeTable(game)}</>;
       })}
-      )<button onClick={() => window.print()}>Print</button>
       {roundsRemaining > 0 ? (
-        <button onClick={handleDraw}>Next Round...</button>
+        <button className={"button"} onClick={handleDraw}>
+          Next Round...
+        </button>
       ) : (
-        <button onClick={handleNewGame}>New Game</button>
+        <button className={"button-newgame"} onClick={handleNewGame}>
+          New Game
+        </button>
       )}
+      <button className={"button"} onClick={() => window.print()}>
+        Print
+      </button>
     </div>
   );
 }
