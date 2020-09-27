@@ -6,13 +6,12 @@ const submit = (state, { names, rules }) => ({
   rules,
 });
 
+const randomName = (pool) => {
+  return Math.floor(Math.random() * pool.length - 1);
+};
+
 const draw = (state) => {
-  const randomName = (pool) => {
-    return Math.floor(Math.random() * pool.length - 1);
-  };
-
-  const newGames = [];
-
+  //converts array of names (strings) into and array of 'player' objects
   const pool = state.names.map((name, index) => {
     return {
       name,
@@ -20,15 +19,21 @@ const draw = (state) => {
     };
   });
 
+  //pair players off into games
+  const newGames = [];
   if (pool.length > 1) {
     let index = 0;
     while (pool.length > 0) {
       let a = randomName(pool),
         b = randomName(pool);
       if (a !== b) {
+        //adds required object properties for a new match
         let match = {
+          //id allows the score function to identify the location of a score action
           id: index,
+          //winner used mainly for styling and displaying results
           winner: 0,
+
           player1Serving: true,
           player1: { ...pool.splice(a, 1)[0], id: 1 },
           player2: { ...pool.splice(b, 1)[0], id: 2 },
@@ -50,16 +55,22 @@ const draw = (state) => {
 };
 
 const score = (state, { playerId, gameId, value }) => {
-  const { games } = state;
+  const { games, rules } = state;
 
   let updatedGames = games.map((game, i) => {
     const { player1, player2 } = game;
+
+    let tally = player1.score + player2.score + value;
+    let dueceZone = rules.scoreToWin - 2;
+
+    let numOfServes =
+      player1.score + value >= dueceZone && player2.score + value >= dueceZone
+        ? 2
+        : rules.alternateServe;
+
     if (i === gameId) {
       let service =
-        (player1.score + player2.score + value) % state.rules.alternateServe ===
-        0
-          ? !game.player1Serving
-          : game.player1Serving;
+        tally % numOfServes === 0 ? !game.player1Serving : game.player1Serving;
 
       if (playerId === 1 && player1.score + value >= 0) {
         return {
@@ -134,7 +145,8 @@ const checkRoundFin = (state) => {
         roundsRemaining: state.roundsRemaining,
       };
     });
-    record.push(round);
+    //use unshift so when mapped over newest comes first
+    record.unshift(round);
     console.log(record);
     return {
       ...state,
