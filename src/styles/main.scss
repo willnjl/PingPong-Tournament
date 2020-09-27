@@ -1,12 +1,13 @@
 @import "reset";
-@import "settings";
 @import "colors";
+@import "settings";
 @import "buttons";
 @import "typography";
 @import "player";
 @import "cards";
 @import "form";
 @import "table";
+@import "print";
 
 .page-wrapper {
   display: flex;
@@ -14,22 +15,21 @@
   margin: auto;
   align-items: center;
   padding: 1rem;
-  border: $test;
 
   .header {
     padding: 2rem;
     background-image: url("../assets/racket.jpg");
     background-size: cover;
-    border-radius: 25px;
-
+    border: 5px solid $black;
     h1 {
       padding: 1rem;
-      border-radius: 25px;
-      background-color: rgba(200, 223, 255, 0.7);
+      background-color: $greyalpha;
     }
   }
 
   .main {
+    display: flex;
+    flex-direction: column;
     margin-top: 1rem;
   }
 }

@@ -48,13 +48,10 @@ export default function RoundResults({
           Next Round...
         </button>
       ) : (
-        <button className={"button-newgame"} onClick={handleNewGame}>
+        <button className={"button"} onClick={handleNewGame}>
           New Game
         </button>
       )}
-      <button className={"button"} onClick={() => window.print()}>
-        Print
-      </button>
     </div>
   );
 }

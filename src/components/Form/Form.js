@@ -100,6 +100,7 @@ export default class Form extends Component {
           onChange={(e) => this.handleChange(e, i)}
           value={this.state.names[i]}
           placeholder={"Player " + (i + 1) + "'s name"}
+          maxlength="10"
           required
         />
       );
@@ -144,7 +145,9 @@ export default class Form extends Component {
         </div>
 
         {namesFilled ? (
-          <button onClick={(e) => this.handleSubmit(e)}>submit</button>
+          <button className={"button"} onClick={(e) => this.handleSubmit(e)}>
+            submit
+          </button>
         ) : (
           <div
             onPointerEnter={() => this.toggleHover()}
@@ -154,7 +157,7 @@ export default class Form extends Component {
           </div>
         )}
         <div className={"validator"}>
-          {this.state.toggleHover ? <p>complete names to proceed</p> : <p></p>}
+          {this.state.toggleHover ? <p>provide names to proceed</p> : <p></p>}
         </div>
       </form>
     );
