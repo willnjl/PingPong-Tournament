@@ -2,6 +2,21 @@ Welcome to the Ping Pong Tournament!
 
 Create By Will Leighton for Develop Me
 
+
+## To View
+
+go to 
+- https://willnjl.github.io/PingPong-Tournament/
+
+or open the project the directory in terminal.
+
+- run `npm i`
+
+then once the down load is complete
+
+-`npm start`
+
+
 ## Technologies
 
 - React,

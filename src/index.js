@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 import { createStore, compose } from "redux";
 import persistState from "redux-localstorage";
 import { Provider } from "react-redux";
-import App from "./components/app";
+import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 import { initial } from "./data/initial";
 import { reducer } from "./data/reducer";
