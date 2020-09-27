@@ -131,7 +131,7 @@ const checkRoundFin = (state) => {
     let round = state.games.map((game) => {
       return {
         ...game,
-        numberRemainingAtTime: state.roundsRemaining,
+        roundsRemaining: state.roundsRemaining,
       };
     });
     record.push(round);
@@ -176,6 +176,8 @@ export const reducer = (state, action) => {
     case "SUBMIT":
       return roundsRemaining(draw(submit(state, action)));
     case "NEW_GAME":
+      return { ...initial };
+    case "RESET":
       return { ...initial };
     case "DRAW":
       return roundsRemaining(draw(selectWinners(state)));

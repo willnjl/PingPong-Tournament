@@ -79,4 +79,11 @@ select {
 
 button {
   outline: none;
+  &:active {
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }

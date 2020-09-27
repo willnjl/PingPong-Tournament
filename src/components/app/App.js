@@ -1,13 +1,14 @@
 import React from "react";
 import Form from "../Form";
 import Game from "../game";
+import Reset from "../Reset";
 import "../../styles/main.scss";
 import RoundResults from "../RoundResults";
 import RoundTitle from "../RoundTitle";
 import Final from "../Final";
 import TournamentComplete from "../TournamentComplete";
 
-function App({ setup, games, roundFin, roundsRemaining, record }) {
+function App({ setup, games, roundFin, roundsRemaining, record, handleClick }) {
   return (
     <div className={"page-wrapper"}>
       <header className={"header"}>
@@ -36,6 +37,7 @@ function App({ setup, games, roundFin, roundsRemaining, record }) {
           <TournamentComplete game={games[0]} record={record} />
         )}
       </div>
+      <Reset handleClick={() => handleClick()} setup={setup} />
     </div>
   );
 }

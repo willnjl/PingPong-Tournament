@@ -28,3 +28,14 @@
   @extend .score-btn;
   background-color: black;
 }
+
+.reset {
+  background-color: none;
+  border: 1px solid grey;
+  text-decoration: underline;
+  margin-left: auto;
+  margin-top: 2rem;
+  &:hover {
+    border: 1px solid black;
+  }
+}

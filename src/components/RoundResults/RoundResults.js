@@ -11,13 +11,14 @@ export default function RoundResults({
   const makeRows = (game) => {
     return game.map((match) => {
       const { player1, player2, winner } = match;
+      let oneWon = player1.score > player2.score;
       return (
         <tr>
           <td>{winner === 1 ? "🏅" : null}</td>
-          <td>{player1.name}</td>
-          <td>{player1.score}</td>
-          <td>{player2.score}</td>
-          <td>{player2.name}</td>
+          <td className={!oneWon ? "strikethrough" : null}>{player1.name}</td>
+          <td className={!oneWon ? "strikethrough" : null}>{player1.score}</td>
+          <td className={oneWon ? "strikethrough" : null}>{player2.score}</td>
+          <td className={oneWon ? "strikethrough" : null}>{player2.name}</td>
           <td>{winner === 2 ? "🏅" : null}</td>
         </tr>
       );
@@ -25,8 +26,25 @@ export default function RoundResults({
   };
 
   let makeTable = (game) => {
-    console.log(game);
-    return <Table striped>{makeRows(game)}</Table>;
+    console.log(game[0]);
+    return (
+      <>
+        <RoundTitle roundsRemaining={game[0].roundsRemaining} />
+        <Table striped>
+          <thead>
+            <tr>
+              <th></th>
+              <th>name</th>
+              <th>score</th>
+              <th>score</th>
+              <th>name</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>{makeRows(game)}</tbody>
+        </Table>
+      </>
+    );
   };
 
   return (

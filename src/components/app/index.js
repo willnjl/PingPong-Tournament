@@ -15,4 +15,10 @@ const mapStateToProps = ({
   record,
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleClick: () => dispatch({ type: "RESET" }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
