@@ -12,14 +12,15 @@ export default function RoundResults({
     return game.map((match) => {
       const { player1, player2, winner } = match;
       let oneWon = player1.score > player2.score;
+      let prize = match.roundsRemaining > 0 ? "🏅" : "🏆";
       return (
         <tr>
-          <td>{winner === 1 ? "🏅" : null}</td>
+          <td>{winner === 1 ? prize : null}</td>
           <td className={!oneWon ? "strikethrough" : null}>{player1.name}</td>
           <td className={!oneWon ? "strikethrough" : null}>{player1.score}</td>
           <td className={oneWon ? "strikethrough" : null}>{player2.score}</td>
           <td className={oneWon ? "strikethrough" : null}>{player2.name}</td>
-          <td>{winner === 2 ? "🏅" : null}</td>
+          <td>{winner === 2 ? prize : null}</td>
         </tr>
       );
     });
