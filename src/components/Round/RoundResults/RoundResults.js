@@ -26,21 +26,21 @@ export default function RoundResults({
     });
   };
 
-  let makeTable = (game) => {
+  let makeTable = (game, i) => {
     return (
-      <>
+      <React.Fragment key={i}>
         <RoundTitle roundsRemaining={game[0].roundsRemaining} />
         <Table striped bordered hover>
           <tbody>{makeRows(game)}</tbody>
         </Table>
-      </>
+      </React.Fragment>
     );
   };
 
   return (
     <div className={"round_over"}>
-      {record.map((game) => {
-        return <>{makeTable(game)}</>;
+      {record.map((game, i) => {
+        return <React.Fragment key={i}>{makeTable(game)}</React.Fragment>;
       })}
       {roundsRemaining > 0 ? (
         <button className={"button"} onClick={handleDraw}>

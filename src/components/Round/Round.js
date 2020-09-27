@@ -6,8 +6,8 @@ export default function Round({ roundsRemaining, games, roundFin, record }) {
   return !roundFin ? (
     <div>
       <RoundTitle roundsRemaining={roundsRemaining} />
-      {games.map((_, i) => {
-        return <Match gameId={i} />;
+      {games.map((game) => {
+        return <Match key={game.id} gameId={game.id} />;
       })}
     </div>
   ) : (
