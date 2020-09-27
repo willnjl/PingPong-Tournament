@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/PingPong-Tornament/static/css/main.6d83e7a1.chunk.css",
-    "main.js": "/PingPong-Tornament/static/js/main.39f9f1c0.chunk.js",
-    "main.js.map": "/PingPong-Tornament/static/js/main.39f9f1c0.chunk.js.map",
+    "main.js": "/PingPong-Tornament/static/js/main.fdea4924.chunk.js",
+    "main.js.map": "/PingPong-Tornament/static/js/main.fdea4924.chunk.js.map",
     "runtime-main.js": "/PingPong-Tornament/static/js/runtime-main.b56a9dac.js",
     "runtime-main.js.map": "/PingPong-Tornament/static/js/runtime-main.b56a9dac.js.map",
     "static/css/2.d9ad5f5c.chunk.css": "/PingPong-Tornament/static/css/2.d9ad5f5c.chunk.css",
     "static/js/2.28d5be70.chunk.js": "/PingPong-Tornament/static/js/2.28d5be70.chunk.js",
     "static/js/2.28d5be70.chunk.js.map": "/PingPong-Tornament/static/js/2.28d5be70.chunk.js.map",
     "index.html": "/PingPong-Tornament/index.html",
-    "precache-manifest.f45c03abbee359c3a531fbc70961a9d9.js": "/PingPong-Tornament/precache-manifest.f45c03abbee359c3a531fbc70961a9d9.js",
+    "precache-manifest.59747e565b21baec0233af998a1e2289.js": "/PingPong-Tornament/precache-manifest.59747e565b21baec0233af998a1e2289.js",
     "service-worker.js": "/PingPong-Tornament/service-worker.js",
     "static/css/2.d9ad5f5c.chunk.css.map": "/PingPong-Tornament/static/css/2.d9ad5f5c.chunk.css.map",
     "static/css/main.6d83e7a1.chunk.css.map": "/PingPong-Tornament/static/css/main.6d83e7a1.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.d9ad5f5c.chunk.css",
     "static/js/2.28d5be70.chunk.js",
     "static/css/main.6d83e7a1.chunk.css",
-    "static/js/main.39f9f1c0.chunk.js"
+    "static/js/main.fdea4924.chunk.js"
   ]
 }

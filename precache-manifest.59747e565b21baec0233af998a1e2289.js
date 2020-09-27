@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a28aaf977c52b02ec7892a1a63ada502",
+    "revision": "dea69c8884baea65b98ee62a8f23dd28",
     "url": "/PingPong-Tornament/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/PingPong-Tornament/static/css/2.d9ad5f5c.chunk.css"
   },
   {
-    "revision": "33365b49b283e9b1c8e6",
+    "revision": "9c59edf3e547eff2e3f0",
     "url": "/PingPong-Tornament/static/css/main.6d83e7a1.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/PingPong-Tornament/static/js/2.28d5be70.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "33365b49b283e9b1c8e6",
-    "url": "/PingPong-Tornament/static/js/main.39f9f1c0.chunk.js"
+    "revision": "9c59edf3e547eff2e3f0",
+    "url": "/PingPong-Tornament/static/js/main.fdea4924.chunk.js"
   },
   {
     "revision": "c7e8d3a2bbac4ac4d149",
