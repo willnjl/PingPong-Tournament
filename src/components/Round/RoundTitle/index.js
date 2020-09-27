@@ -9,6 +9,8 @@ export default function RoundTitle({ roundsRemaining }) {
         return "Semi Final";
       case 0:
         return "Final";
+      default:
+        return `Rounds Remaining ${roundsRemaining}`;
     }
   };
 

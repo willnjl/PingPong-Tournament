@@ -8,7 +8,9 @@ export default function MatchComplete({ player1, player2, winner }) {
         <p>{player1.score}</p>
       </div>
       <div>
-        <p>{winner === 1 ? player1.name : player2.name} 🏅</p>
+        <p>
+          {winner === 1 ? player1.name : player2.name} {"🏅"}
+        </p>
       </div>
       <div>
         <p>{player2.name}</p>

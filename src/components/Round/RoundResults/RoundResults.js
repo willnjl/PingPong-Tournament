@@ -14,7 +14,7 @@ export default function RoundResults({
       let oneWon = player1.score > player2.score;
       let prize = match.roundsRemaining > 0 ? "🏅" : "🏆";
       return (
-        <tr>
+        <tr key={match.id}>
           <td>{winner === 1 ? prize : null}</td>
           <td className={!oneWon ? "strikethrough" : null}>{player1.name}</td>
           <td className={!oneWon ? "strikethrough" : null}>{player1.score}</td>

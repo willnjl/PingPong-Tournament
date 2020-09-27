@@ -108,7 +108,7 @@ export default class Form extends Component {
           onChange={(e) => this.handleChange(e, i)}
           value={this.state.names[i]}
           placeholder={"Player " + (i + 1) + "'s name"}
-          maxlength="10"
+          maxLength="10"
           required
         />
       );
@@ -126,8 +126,12 @@ export default class Form extends Component {
             onChange={(e) => this.setScoreToWin(e)}
             value={this.state.rules.scoreToWin}
           >
-            {scoreToWinOptions.map((value) => {
-              return <option value={value}>{value}</option>;
+            {scoreToWinOptions.map((value, i) => {
+              return (
+                <option key={i} value={value}>
+                  {value}
+                </option>
+              );
             })}
           </select>
         </div>
@@ -138,8 +142,12 @@ export default class Form extends Component {
             onChange={(e) => this.setAlternateServe(e)}
             value={this.state.rules.alternateServe}
           >
-            {alternateServeOptions.map((value) => {
-              return <option value={value}>{value}</option>;
+            {alternateServeOptions.map((value, i) => {
+              return (
+                <option key={i} value={value}>
+                  {value}
+                </option>
+              );
             })}
           </select>
         </div>
@@ -149,8 +157,12 @@ export default class Form extends Component {
             name="numOfPlayers"
             onChange={(e) => this.handleNumOfPlayers(e)}
           >
-            {numOfPlayers.map((value) => {
-              return <option value={value}>{value}</option>;
+            {numOfPlayers.map((value, i) => {
+              return (
+                <option key={i} value={value}>
+                  {value}
+                </option>
+              );
             })}
           </select>
         </div>
