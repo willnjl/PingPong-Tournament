@@ -17,7 +17,7 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleClick: () => dispatch({ type: "RESET" }),
+    handleClick: () => dispatch({ type: "NEW_GAME" }),
   };
 };
 

@@ -9,8 +9,8 @@ export default class Form extends Component {
       toggleHover: false,
       numOfPlayers: 2,
       rules: {
-        scoreToWin: 21,
-        alternateServe: 5,
+        scoreToWin: this.props.rules.scoreToWin,
+        alternateServe: this.props.rules.alternateServe,
       },
     };
 
@@ -112,7 +112,11 @@ export default class Form extends Component {
       <form className={"form"}>
         <div className={"form__group"}>
           <label htmlFor={"scoreToWin"}>Score to win:</label>
-          <select name="scoreToWin" onChange={(e) => this.setScoreToWin(e)}>
+          <select
+            name="scoreToWin"
+            onChange={(e) => this.setScoreToWin(e)}
+            value={this.state.rules.scoreToWin}
+          >
             {scoreToWinOptions.map((value) => {
               return <option value={value}>{value}</option>;
             })}
@@ -123,6 +127,7 @@ export default class Form extends Component {
           <select
             name="alternateServe"
             onChange={(e) => this.setAlternateServe(e)}
+            value={this.state.rules.alternateServe}
           >
             {alternateServeOptions.map((value) => {
               return <option value={value}>{value}</option>;

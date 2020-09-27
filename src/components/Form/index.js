@@ -1,9 +1,7 @@
 import { connect } from "react-redux";
 import Form from "./Form";
 
-const mapStateToProps = ({ count }) => ({
-  count,
-});
+const mapStateToProps = ({ rules }) => ({ rules });
 
 const mapDispatchToProps = (dispatch) => {
   return {
