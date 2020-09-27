@@ -1,0 +1,22 @@
+@media print {
+  :root {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .main {
+    padding: 2rem;
+  }
+
+  .table {
+    min-width: 80vw;
+  }
+
+  .button {
+    display: none;
+  }
+
+  .buttons-bottom {
+    display: none;
+  }
+}
