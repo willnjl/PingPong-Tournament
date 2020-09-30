@@ -6,18 +6,18 @@ Created By Will Leighton in one week for the technical challenge assingement for
 
 
 
-## To View Online
+# To View Online
 
-# go to 
+## go to 
 - https://willnjl.github.io/PingPong-Tournament/
-# view code
+## view code
 - https://github.com/willnjl/PingPong-Tournament
 
-## To View Offline
+# To View Offline
 
-# Prerequisites
+## Prerequisites
 - Latest version of NPM installed on your machine (check your version with npm -v)
-# Steos
+## Steos
 
 * open the project the directory in terminal.
 
@@ -26,7 +26,7 @@ Created By Will Leighton in one week for the technical challenge assingement for
 * then once the download is complete `npm start`
 
 
-## Technologies
+# Technologies
 
 - React,
 - Redux,
@@ -37,7 +37,7 @@ Created By Will Leighton in one week for the technical challenge assingement for
 - GitHub Pages
 - npm
 
-## App Features
+# App Features
 
 - name up to 8 people
 - tracks scores
@@ -49,7 +49,7 @@ Created By Will Leighton in one week for the technical challenge assingement for
 - records and displays the results for all the rounds
 - easy print button
 
-## Brief
+# Brief
 "The core of the challenge is to create a tool which randomly creates pairings for a table tennis tournament bracket from a list of names collected from the user.
 It's up to you how you implement this, with JavaScript, React, or PHP, as a web page, or as an app.
 Some optional advanced features might include:
