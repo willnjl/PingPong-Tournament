@@ -1,20 +1,28 @@
 Welcome to the Ping Pong Tournament!
 
-Create By Will Leighton for Develop Me
+An app for Ping Pong enthusiasts to organise and display a straight knock out tournament for up to eight people.
 
 
-## To View
 
+Created By Will Leighton for Develop Me
+
+
+## To View Online
 go to 
 - https://willnjl.github.io/PingPong-Tournament/
 
-or open the project the directory in terminal.
 
-- run `npm i`
+## To View Offline
 
-then once the down load is complete
+# Prerequisites
+- Latest version of NPM installed on your machine (check your version with npm -v)
+# Steos
 
--`npm start`
+* open the project the directory in terminal.
+
+* run `npm i`
+
+* then once the download is complete `npm start`
 
 
 ## Technologies
@@ -23,6 +31,8 @@ then once the down load is complete
 - Redux,
 - Javascript
 - Sass,
+- HTML
+- Git
 - GitHub Pages
 - npm
 
