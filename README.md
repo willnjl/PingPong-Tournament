@@ -2,15 +2,16 @@ Welcome to the Ping Pong Tournament!
 
 An app for Ping Pong enthusiasts to organise and display a straight knock out tournament for up to eight people.
 
+Created By Will Leighton in one week for the technical challenge assingement for DevelopMe Bootcamp.
 
-
-Created By Will Leighton for Develop Me
 
 
 ## To View Online
-go to 
-- https://willnjl.github.io/PingPong-Tournament/
 
+# go to 
+- https://willnjl.github.io/PingPong-Tournament/
+# view code
+- https://github.com/willnjl/PingPong-Tournament
 
 ## To View Offline
 
@@ -47,5 +48,12 @@ go to
 - Creates the draw for each round
 - records and displays the results for all the rounds
 - easy print button
+
+## Brief
+"The core of the challenge is to create a tool which randomly creates pairings for a table tennis tournament bracket from a list of names collected from the user.
+It's up to you how you implement this, with JavaScript, React, or PHP, as a web page, or as an app.
+Some optional advanced features might include:
+ability to record scores for each player, or mark which player won from each pairing, to create the next round of the tournament playoffs
+continued rounds created until the final (last 2 players who have won all matches to date play each other, one marked as the winner)"
 
 will_leighton(at)outlook.com
